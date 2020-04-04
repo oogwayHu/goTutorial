@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INDEX</title>
+</head>
+<body>
+
+    <h1>Hello there</h1>
+    <form method="POST">
+        <label for="input">Enter text here</label>
+        <input type="text" name="input">
+        <input type="submit">
+    </form>
+
+    {{ if . }}
+    <h1>Here are the contents</h1>
+        {{ range . }}
+            <p>{{.}}</p>
+        {{ end }}
+    {{end}}
+
+</body>
+</html>
