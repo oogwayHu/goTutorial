@@ -13,7 +13,7 @@ import (
 // use.
 var db = dynamodb.New(session.New(), aws.NewConfig().WithRegion("ap-southeast-1"))
 
-func postItem(item post) error {
+func postItem(item Post) error {
 	av, err := dynamodbattribute.MarshalMap(item)
 	if err != nil {
 		fmt.Println("Error marshalling item", err)

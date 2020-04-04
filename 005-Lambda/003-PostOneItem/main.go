@@ -1,31 +1,23 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-type post struct {
+type Post struct {
 	ID   int64  `json:"Id"`
 	Data string `json:"Data"`
 }
 
-func show() error {
-	test := post{
-		ID:   6,
-		Data: "Heelo world",
-	}
-
-	err := postItem(test)
+func handler(p Post) (string, error) {
+	err := postItem(p)
 	if err != nil {
-		fmt.Println("Error posting item", err)
-		return err
+		return "Errorrr", err
 	}
 
-	return nil
+	return p.Data, nil
 }
 
 func main() {
-	lambda.Start(show)
+	lambda.Start(handler)
 }
